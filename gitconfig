@@ -1,0 +1,21 @@
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+[user]
+	name = Cristian Salamea
+	email = ovnicraft@gmail.com
+
+[alias]
+        conflicts = !git ls-files --unmerged | cut -f2 | sort -u
+        count-conflicts = !grep -c '^=======$'
+        count-all-conflicts = !grep -c '^=======$' $(git conflicts)
+	wd = diff --word-diff
+	d = diff
+	last = log -n1 --decorate=short --abbrev-commit --format=fuller
+	s = status -sb
+[color]
+	ui = true
+
+[github]
+	user = ovnicraft
